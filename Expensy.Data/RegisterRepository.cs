@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using Expensy.Data.DTO;
+using Expensy.Logic.Interfaces;
 
 namespace Expensy.Data
 {
-    public class UserRepository
+    public class RegisterRepository : IRegisterService
     {
         string connectionString = "Server=192.168.178.27;port=3306;Database=Expensy;Uid=Scraper;Pwd=123Scraper21!;";
 

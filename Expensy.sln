@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expensy.Logic", "Expensy.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expensy.UnitTests", "Expensy.UnitTests\Expensy.UnitTests.csproj", "{B1868F92-DB2F-4395-84DB-B293D133EC27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expensy.Interfaces", "Expensy.Interfaces\Expensy.Interfaces.csproj", "{FD076B58-F11A-4369-8319-72C1C9A78F23}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{B1868F92-DB2F-4395-84DB-B293D133EC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1868F92-DB2F-4395-84DB-B293D133EC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1868F92-DB2F-4395-84DB-B293D133EC27}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD076B58-F11A-4369-8319-72C1C9A78F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD076B58-F11A-4369-8319-72C1C9A78F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD076B58-F11A-4369-8319-72C1C9A78F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD076B58-F11A-4369-8319-72C1C9A78F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

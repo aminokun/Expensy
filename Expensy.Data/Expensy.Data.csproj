@@ -10,4 +10,8 @@
     <PackageReference Include="MySql.Data" Version="8.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Expensy.Logic\Expensy.Logic.csproj" />
+  </ItemGroup>
+
 </Project>

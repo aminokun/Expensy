@@ -1,17 +1,21 @@
-﻿using Expensy.Data;
-using Expensy.Data.DTO;
+﻿using Expensy.Logic.Interfaces;
 using Expensy.Logic.Models;
 
 namespace Expensy.Logic
 {
-    public class RegisterService
+    public class RegisterService : IRegisterService
     {
-        UserRepository userRepository = new UserRepository();
+        private readonly dynamic _registerRepository;
+
+        public RegisterService(dynamic registerRepository)
+        {
+            _registerRepository = registerRepository;
+        }
 
         public async Task<bool> Register(string _username, string _email, string _password)
         {
             var userDTO = ConvertToUserDTO(_username, _email, _password);
-            await userRepository.CreateNewUser(userDTO);
+            await _registerRepository.CreateNewUser(userDTO);
             return true;
         }
 
@@ -26,3 +30,4 @@ namespace Expensy.Logic
         }
     }
 }
+
