@@ -1,6 +1,7 @@
 using Xunit;
 using FluentAssertions;
 using Expensy.Logic;
+using Expensy.UnitTests.TestRepository;
 
 namespace Expensy.UnitTests
 {
@@ -10,7 +11,8 @@ namespace Expensy.UnitTests
         public async Task RegisterUser_ShouldReturnTrue_OnSuccessfulRegistration()
         {
             // Arrange
-            RegisterService registerService = new RegisterService();
+            TestRegisterRepository testRegisterRepository = new TestRegisterRepository();
+            RegisterService registerService = new RegisterService(testRegisterRepository);
 
             // Act
             bool result = await registerService.Register("newUser", "new@user.nl", "password123");
@@ -23,7 +25,8 @@ namespace Expensy.UnitTests
         public async Task RegisterUser_ShouldReturnFalse_OnExistingUsername()
         {
             // Arrange
-            RegisterService registerService = new RegisterService();
+            TestRegisterRepository testRegisterRepository = new TestRegisterRepository();
+            RegisterService registerService = new RegisterService(testRegisterRepository);
 
             // Act
             bool result = await registerService.Register("existingUser", "existing@user.nl", "password456");

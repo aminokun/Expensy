@@ -5,27 +5,54 @@ namespace Expensy.Logic
 {
     public class RegisterService : IRegisterService
     {
-        private readonly dynamic _registerRepository;
+        private readonly IRegisterRepository registerRepository;
 
-        public RegisterService(dynamic registerRepository)
+        public RegisterService(IRegisterRepository registerRepository)
         {
-            _registerRepository = registerRepository;
+            this.registerRepository = registerRepository;
+        }
+
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await registerRepository.GetUserByEmailAsync(email);
+        }
+
+        public async Task<User?> GetUserByUsernameAsync(string username)
+        {
+            return await registerRepository.GetUserByUsernameAsync(username);
         }
 
         public async Task<bool> Register(string _username, string _email, string _password)
         {
-            var userDTO = ConvertToUserDTO(_username, _email, _password);
-            await _registerRepository.CreateNewUser(userDTO);
+            var user = ConvertToUser(_username, _email, _password);
+
+            var existingUser = await GetUserByEmailAsync(_email);
+            if (existingUser != null)
+            {
+                return false;
+                throw new ArgumentException("User with the same email already exists");
+            }
+
+            existingUser = await GetUserByUsernameAsync(_username);
+            if (existingUser != null)
+            {
+                return false;
+                throw new ArgumentException("User with the same username already exists");
+            }
+
+            await registerRepository.CreateNewUser(user);
             return true;
         }
 
-        private UserDTO ConvertToUserDTO(string _username, string _email, string _password)
+        private User ConvertToUser(string _username, string _email, string _password)
         {
-            return new UserDTO
+            var passwordHash = BCrypt.Net.BCrypt.HashPassword(_password);
+
+            return new User
             {
                 username = _username,
                 email = _email,
-                password = _password,
+                password = passwordHash,
             };
         }
     }
