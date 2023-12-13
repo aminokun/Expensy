@@ -6,12 +6,11 @@ namespace Expensy.Controllers
 {
     public class GroupController : Controller
     {
-        private readonly GroupRepository groupRepository;
         private readonly GroupService groupService;
 
         public GroupController()
         {
-            this.groupRepository = new GroupRepository();
+            GroupRepository groupRepository = new GroupRepository();
             this.groupService = new GroupService(groupRepository);
         }
 
