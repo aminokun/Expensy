@@ -1,9 +1,17 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Expensy.Data;
+using Expensy.Logic.Interfaces;
+using Expensy.Logic;
+using FluentAssertions.Common;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddTransient<IRegisterRepository, RegisterRepository>();
+//builder.Services.AddTransient<IGroupRepository, GroupRepository>();
+//builder.Services.AddScoped<GroupService>();
+
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>

@@ -3,7 +3,7 @@ using Expensy.Logic.Models;
 
 namespace Expensy.Logic
 {
-    public class RegisterService : IRegisterService
+    public class RegisterService
     {
         private readonly IRegisterRepository registerRepository;
 

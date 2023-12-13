@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Expensy.Data
 {
-    public class TestRegisterRepository : IRegisterRepository
+    public class RegisterRepository : IRegisterRepository
     {
         string connectionString = "Server=192.168.178.27;port=3306;Database=Expensy;Uid=Scraper;Pwd=123Scraper21!;";
 

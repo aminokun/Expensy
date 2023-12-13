@@ -6,11 +6,9 @@ namespace Expensy.Controllers
 {
     public class RegisterController : Controller
     {
-        private readonly IRegisterService registerService;
 
-        public RegisterController(IRegisterService registerService)
+        public RegisterController()
         {
-            this.registerService = registerService;
         }
     }
 

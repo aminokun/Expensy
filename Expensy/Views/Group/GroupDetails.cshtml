@@ -1,0 +1,18 @@
+﻿@model Expensy.Models.GroupDetailsViewModel
+
+<h2>Group Details</h2>
+
+<div>
+    <strong>Group ID:</strong> @Model.GroupId
+</div>
+<div>
+    <strong>Group Name:</strong> @Model.GroupName
+</div>
+
+<h3>Group Members</h3>
+<ul>
+    @foreach (var user in Model.Users)
+    {
+        <li>@user</li>
+    }
+</ul>
